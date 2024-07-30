@@ -103,6 +103,7 @@ def handle_messsage(event):
         reply_message(event, [StickerMessage(package_id="446", sticker_id="1988")])
     elif message == "Image message":
         url = f"{url_root}static/logo.png"
+        app.logger.info(url)
         reply_message(event, [ImageMessage(original_content_url=url, preview_image_url=url)])
     elif message == "Video message":
         url = f"{url_root}static/video.mp4"
