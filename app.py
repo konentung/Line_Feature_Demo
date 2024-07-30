@@ -104,7 +104,7 @@ def handle_messsage(event):
     elif message == "Image message":
         url = f"{url_root}static/logo.png"
         app.logger.info(url)
-        # reply_message(event, [ImageMessage(original_content_url=url, preview_image_url=url)])
+        reply_message(event, [ImageMessage(original_content_url=url, preview_image_url=url)])
         reply_message(event, [TextMessage(text=url)])
     elif message == "Video message":
         url = f"{url_root}static/video.mp4"
