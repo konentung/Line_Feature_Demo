@@ -59,6 +59,10 @@ CHANNEL_SECRET = os.getenv("CHANNEL_SECRET")
 line_handler = WebhookHandler(CHANNEL_SECRET)
 configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
 
+@app.route("/")
+def index():
+    return "2024 LineBot Building & Learning Behavior Analysis Workshop"
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
