@@ -81,7 +81,7 @@ def callback():
 @line_handler.add(MessageEvent, message=TextMessageContent)
 def handle_messsage(event):
     message = event.message.text
-    url_root = request.url_root.replace("http", "https")
+    url_root = request.url_root.replace("https", "http")
     if message == "主選單":
         flex_json = line_flex.main_line_flex_str()
         reply_message(event, [FlexMessage(alt_text=message, contents=FlexContainer.from_json(flex_json))])
@@ -102,7 +102,7 @@ def handle_messsage(event):
     elif message == "Sticker message":
         reply_message(event, [StickerMessage(package_id="446", sticker_id="1988")])
     elif message == "Image message":
-        url = f"{url_root}/static/logo.png"
+        url = f"{url_root}static/logo.png"
         app.logger.info(url)
         # reply_message(event, [ImageMessage(original_content_url=url, preview_image_url=url)])
         reply_message(event, [TextMessage(text=url)])
